@@ -111,9 +111,54 @@ section h3{
     margin-bottom:12px;
 }
 
+#tentang {
+    width: 100%;
+}
+
 #memakai,
-#Simpan-Halaman,
-#favorit
+#favorit,
+#komunitas,
+#Simpan-Halaman {
+    display: flex;
+    gap: 12px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 10px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+}
+
+/* Setiap item di dalam container */
+#memakai > *,
+#favorit > *,
+#komunitas > *,
+#Simpan-Halaman > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+/* Scrollbar Chrome / Android */
+#memakai::-webkit-scrollbar,
+#favorit::-webkit-scrollbar,
+#komunitas::-webkit-scrollbar,
+#Simpan-Halaman::-webkit-scrollbar {
+    height: 6px;
+}
+
+#memakai::-webkit-scrollbar-thumb,
+#favorit::-webkit-scrollbar-thumb,
+#komunitas::-webkit-scrollbar-thumb,
+#Simpan-Halaman::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
 {
     display:grid;
     grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
@@ -126,6 +171,7 @@ section h3{
     padding:8px;
     text-align:center;
     transition:.2s;
+    width: 100px;
 }
 
 .card:hover{
@@ -211,3 +257,12 @@ section h3{
             background-position:468px 0;
         }
     }
+
+  .hscroll{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+  .hscroll::-webkit-scrollbar{display:none;}
